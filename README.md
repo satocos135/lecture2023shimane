@@ -36,13 +36,18 @@
     + slides/20220625_R_catchup.pdf ...授業スライド
 
 + テキストマイニング講義関連
-    + practice_preprocessing.* ...データ前処理: RMeCabの基礎
-    + practice_analysis01.* ...分析①『夢十夜』の分析
-    + practice_analysis02.* ...分析②『こころ』の分析
+    + day1_0_preprocessing.* ...データ前処理: RMeCabの基礎
+    + day1_1_analysis01.* ...分析①『夢十夜』の分析
+    + day1_2_analysis02.* ...分析②『こころ』の分析
     + functions.r ...分析で使う関数
     + data/textmining/* ...分析で使うデータ
     + dict/* ...分析用の辞書の例
     + report_example/* ...レポートの例
+
++ 分析実習関連
+    + worksheet.docx ...課題提出用のWordファイル
+    + day2_practical_dataanalysis.r ...分析例
+
 
 ### 分析用コード
 
@@ -50,6 +55,18 @@ rファイル(.r)とipynbファイル(.ipynb)があります。
 
 + ipynbはJupyterLab(JupyterNotebook)で作成されたファイルで、GitHub上でソースコードとその実行結果をみることができます
     + うまく見られない場合はJupyter nbviewer( https://nbviewer.jupyter.org/ )を使うとよい
+    + GoogleColabratoryで読み込んで実行できる
+        + 作業環境が一定時間経過すると消去されるので各パッケージは都度インストール
+            + データはアップロード or Googleドライブをマウント
+        + Googl Colab上でのMeCab/RMeCabのインストールは下記を実行
+
+```
+system('sudo apt-get install -y mecab', intern=TRUE)
+system('sudo apt-get install -y libmecab-dev', intern=TRUE)
+system('sudo apt-get install -y mecab-ipadic-utf8', intern=TRUE)
+install.packages("RMeCab", repos = "https://rmecab.jp/R")
+```
+
 + rファイルはRのソースコードで、より詳しいコードの解説と、ネットワークグラフ用のソースコードが入っています。一行ずつ実行していくことで、分析を再現できます
 
 ### ソースコードの実行について
@@ -115,3 +132,4 @@ rファイル(.r)とipynbファイル(.ipynb)があります。
 ## Notes
 
 + 2023.09.02 ファイルをアップロード
++ 2023.09.03 実習用ファイルをアップロード
