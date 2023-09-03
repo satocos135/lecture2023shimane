@@ -18,8 +18,9 @@ idf = function(df){
 get_cooc = function(string, # 分析する文字列
                     pos=c('名詞', '動詞'), # 対象とする品詞
                     with_pos=F, # 品詞も同時に出力するか
-                    unique=T, # 同じ単語同士の組み合わせを許すか
+                    unique=F, # 同じ単語同士の組み合わせを許すか
                     stopwords=c(), # ストップワードに設定する語
+                    regex='', # 除外するシンボルの正規表現
                     dic='' # MeCabの辞書のパス
                     ){
     if(length(string) == 0){
@@ -29,7 +30,10 @@ get_cooc = function(string, # 分析する文字列
     targets = words[names(words) %in% pos] # 対象となる品詞のみ抽出
     if(unique){
         # 重複なしにする
-        targets[!duplicated(targets)]
+        targets = targets[!duplicated(targets)]
+    }
+    if(length(regex) > 0){
+        targets = targets[!str_detect(targets, regex)]
     }
     if(length(stopwords)){
         # ストップワードを除外
