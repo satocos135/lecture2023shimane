@@ -1,6 +1,8 @@
-# excel読み込み用のパッケージ
-install.packages('openxlsx')
+# パッケージのインストール
+install.packages('openxlsx') # excel読み込み用
+install.packages('igraph') # グラフ表示用
 
+# パッケージの読み込み
 library('openxlsx')
 library('tidyverse')
 library('RMeCab')
@@ -115,7 +117,7 @@ remove_stopwords(count_noun, stopwords, symbols)[,'ROW.4'] %>% sort() %>% tail(3
 remove_stopwords(count_noun, stopwords, symbols)[,'ROW.5'] %>% sort() %>% tail(30) %>% barplot(horiz=T, las=1, main='Top 30 nouns', xlab='Frequency', cex.names=0.5)
 
 # 課題3 
-# tf_idfを求める
+# TFIDFを求める
 # functions.rにtf(), idf()それぞれ既にある
 
 tfidf = tf(count_noun) * idf(count_noun) 
